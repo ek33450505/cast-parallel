@@ -1,5 +1,10 @@
 # cast-parallel
 
+[![CI](https://github.com/ek33450505/cast-parallel/actions/workflows/ci.yml/badge.svg)](https://github.com/ek33450505/cast-parallel/actions/workflows/ci.yml)
+![version](https://img.shields.io/badge/version-0.1.0-blue)
+![license](https://img.shields.io/badge/license-MIT-green)
+![platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux-lightgrey)
+
 Split CAST plan execution across parallel worktree sessions — two Claude Code agents working side-by-side on the same repo, each in its own isolated git worktree, results merged automatically when both finish.
 
 ## Install
@@ -133,6 +138,20 @@ When a CAST database logger (`cast-db-log.py`) is available, events are logged t
 - **git** — worktree support (git 2.5+)
 - **python3** — JSON parsing for the ADM block
 - **CAST framework** (recommended) — provides the plan format and database logging
+
+## CAST Ecosystem
+
+Each CAST component ships as a standalone Homebrew package. Mix and match to build your own stack.
+
+| Package | What It Does | Install |
+|---------|-------------|---------|
+| [cast-agents](https://github.com/ek33450505/cast-agents) | 17 specialist Claude Code agents | `brew tap ek33450505/cast-agents && brew install cast-agents` |
+| [cast-hooks](https://github.com/ek33450505/cast-hooks) | 13 hook scripts — observability, safety gates, dispatch | `brew tap ek33450505/cast-hooks && brew install cast-hooks` |
+| [cast-observe](https://github.com/ek33450505/cast-observe) | Session cost + token spend tracking | `brew tap ek33450505/cast-observe && brew install cast-observe` |
+| [cast-security](https://github.com/ek33450505/cast-security) | Policy gates, PII redaction, audit trail | `brew tap ek33450505/cast-security && brew install cast-security` |
+| [cast-dash](https://github.com/ek33450505/cast-dash) | Terminal UI dashboard (Python + Textual) | `brew tap ek33450505/cast-dash && brew install cast-dash` |
+| [cast-memory](https://github.com/ek33450505/cast-memory) | Persistent memory for Claude Code agents | `brew tap ek33450505/cast-memory && brew install cast-memory` |
+| **cast-parallel** | Parallel plan execution across dual worktrees | `brew tap ek33450505/cast-parallel && brew install cast-parallel` |
 
 ## License
 
