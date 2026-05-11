@@ -59,6 +59,12 @@ cast-parallel --split 2 ~/.claude/plans/my-feature.md
 
 cast-parallel reads an **Agent Dispatch Manifest** (ADM) — a JSON block embedded in a CAST plan file — and splits its batches across two concurrent Claude Code sessions.
 
+### When to use cast-parallel
+
+For most parallel agent work, **prefer `cast-managed-agent.sh --fork`** from the [CAST framework](https://github.com/ek33450505/claude-agent-team) — it runs agents on Anthropic infrastructure with no local filesystem contention, no worktree cleanup, and no merge step.
+
+cast-parallel is purpose-built for one specific case the managed approach doesn't cover: **local, plan-file-driven 2-stream worktree splits with automatic merge**. If you have an Agent Dispatch Manifest plan and want to bisect its batches across two local Claude Code sessions with deterministic worktree handoff and merge, this is the right tool. Otherwise, reach for `--fork`.
+
 ### Execution Flow
 
 ```
